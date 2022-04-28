@@ -16,6 +16,7 @@ body {
 
 #header {
   background-color: #fff;
+  box-shadow: 0 1px 7px rgba(0, 0, 0, 0.1);
   position: fixed;
   top: 0;
   left: 0;
@@ -139,6 +140,68 @@ section#whychoose {
       p {
         color: color(gray-blue);
         line-height: 1.5;
+      }
+    }
+  }
+}
+
+section#articles {
+  padding: 3rem 1rem;
+  background-color: color(light-gray);
+
+  .articles__title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .articles__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 1fr;
+    grid-gap: 1rem;
+
+    .article__item {
+      max-width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+
+      .article__image {
+        height: 170px;
+
+        img {
+          max-width: 100%;
+          min-height: 100%;
+          border-radius: 0.2rem 0.2rem 0 0;
+          object-fit: cover;
+        }
+      }
+
+      .article__text {
+        background-color: #fff;
+        padding: 1rem;
+
+        .article__author {
+          font-size: 0.8rem;
+          display: inline-block;
+          margin-bottom: 0.7rem;
+          color: color(gray-blue);
+        }
+
+        .article__title {
+          line-height: 1.2;
+          margin-bottom: 0.7rem;
+          cursor: pointer;
+
+          &:hover {
+            color: color(green);
+          }
+        }
+
+        p {
+          line-height: 1.4;
+          color: color(gray-blue);
+        }
       }
     }
   }

@@ -58,8 +58,8 @@ body {
 }
 
 section#hero {
-  padding: 6rem 1rem 1rem;
-  background-color: color(light-gray-blue);
+  padding: 2rem 1rem 1rem;
+  background-color: color(light-gray);
   position: relative;
 
   .bg {
@@ -95,6 +95,50 @@ section#hero {
         line-height: 1.5;
         color: color(gray-blue);
         margin-bottom: 1rem;
+      }
+    }
+  }
+}
+
+section#whychoose {
+  background-color: color(light-gray-blue);
+  padding: 4rem 1rem;
+
+  .whychoose__title {
+    margin-bottom: 3rem;
+    width: 50%;
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    p {
+      line-height: 1.5;
+      color: color(gray-blue);
+    }
+  }
+
+  .whychoose__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 1.5rem;
+
+    .grid__item {
+      .grid__image {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 1.5rem;
+      }
+
+      h3 {
+        margin-bottom: 1rem;
+        line-height: 1.3;
+      }
+
+      p {
+        color: color(gray-blue);
+        line-height: 1.5;
       }
     }
   }

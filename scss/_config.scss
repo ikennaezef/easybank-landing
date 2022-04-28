@@ -1,0 +1,47 @@
+@import url("https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&display=swap");
+
+$font-stack: "Public Sans", sans-serif;
+
+$colors: (
+  dark: #2d314d,
+  green: #31d35c,
+  cyan: #2bb7da,
+  gray-blue: #9698a6,
+  light-gray-blue: #f3f4f6,
+  light-gray: #fafafa,
+  gradient: linear-gradient(to right, #31d35c, #2bb7da),
+);
+
+@function color($color) {
+  @return map-get($colors, $color);
+}
+
+// for responsiveness/media queries
+$tablet: 769px;
+$mobile: 600px;
+
+@mixin tablet {
+  @media (max-width: #{$tablet}) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: #{$mobile}) {
+    @content;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+}

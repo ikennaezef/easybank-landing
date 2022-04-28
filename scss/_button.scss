@@ -1,0 +1,21 @@
+%accent-btn {
+  display: inline-block;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  padding: 0.7rem 2rem;
+  background: color(gradient);
+  color: #fff;
+  border-radius: 2rem;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: 0.3s ease;
+
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+.accent-btn {
+  @extend %accent-btn;
+}

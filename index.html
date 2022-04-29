@@ -34,6 +34,9 @@
           </ul>
         </nav>
         <button class="accent-btn">Request Invite</button>
+        <div class="menu-btn">
+          <img src="images/icon-hamburger.svg" alt="menu icon">
+        </div>
       </div>
     </header>
 
@@ -197,5 +200,14 @@
         </div>
       </div>
     </footer>
+
+    <script>
+      const menuBtn = document.querySelector('.menu-btn');
+      const navMenu = document.querySelector('#nav ul');
+      const navLinks = document.querySelectorAll('#nav a');
+
+      menuBtn.addEventListener('click', ()=> navMenu.classList.toggle('nav-active'))
+      navLinks.forEach(link => link.addEventListener('click', ()=> navMenu.classList.remove('nav-active')));
+    </script>
   </body>
 </html>

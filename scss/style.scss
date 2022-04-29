@@ -9,6 +9,7 @@
   transition: 0.3s ease;
 }
 
+html,
 body {
   color: color(dark);
   overflow-x: hidden;
@@ -20,7 +21,7 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 100vw;
   z-index: 100;
 
   .header__container {
@@ -40,8 +41,33 @@ body {
         display: flex;
         gap: 1rem;
 
+        @include mobile {
+          display: block;
+          position: absolute;
+          top: -50rem;
+          left: 50%;
+          transform: translateX(-50%);
+          background-color: #fff;
+          opacity: 0;
+          padding: 1.5rem;
+          border-radius: 0.5rem;
+          width: 90vw;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+          text-align: center;
+          transition: 0.5s ease;
+
+          &.nav-active {
+            top: 110%;
+            opacity: 1;
+          }
+        }
+
         li {
           color: color(gray-blue);
+
+          @include mobile {
+            line-height: 2.8;
+          }
 
           a {
             font-weight: 500;
@@ -50,9 +76,28 @@ body {
             &:hover {
               border-bottom: 3px solid color(green);
               color: color(dark);
+
+              @include mobile {
+                border-bottom: none;
+              }
             }
           }
         }
+      }
+    }
+
+    button {
+      @include tablet {
+        display: none;
+      }
+    }
+
+    .menu-btn {
+      display: none;
+
+      @include mobile {
+        display: block;
+        cursor: pointer;
       }
     }
   }
@@ -63,15 +108,28 @@ section#hero {
   background-color: color(light-gray);
   position: relative;
 
+  @include mobile {
+    padding-top: 1rem;
+  }
+
   .bg {
     background: url("../images/bg-intro-desktop.svg") no-repeat center
-      center/contain;
+      center/cover;
     position: absolute;
     top: -5%;
     right: -20%;
     width: 80%;
     height: 100%;
     z-index: 1;
+    overflow-x: hidden;
+    max-width: 100%;
+
+    @include mobile {
+      top: -15rem;
+      right: 0;
+      width: 100%;
+      height: 100%;
+    }
   }
 
   .container {
@@ -80,16 +138,37 @@ section#hero {
     grid-gap: 2rem;
     align-items: center;
 
+    @include mobile {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        "picture"
+        "writing";
+
+      text-align: center;
+    }
+
     img {
       max-width: 100%;
       z-index: 10;
+
+      @include mobile {
+        grid-area: picture;
+      }
     }
 
     .hero__text {
+      @include mobile {
+        grid-area: writing;
+      }
+
       h1 {
-        font-size: 2.2rem;
+        font-size: 2.4rem;
         margin-bottom: 1.4rem;
         line-height: 1.5;
+
+        @include mobile {
+          font-size: 2.2rem;
+        }
       }
 
       p {
@@ -109,6 +188,15 @@ section#whychoose {
     margin-bottom: 3rem;
     width: 50%;
 
+    @include tablet {
+      width: 80%;
+    }
+
+    @include mobile {
+      width: 100%;
+      text-align: center;
+    }
+
     h2 {
       font-size: 2rem;
       margin-bottom: 1.5rem;
@@ -124,6 +212,15 @@ section#whychoose {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 1.5rem;
+
+    @include tablet {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @include mobile {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
 
     .grid__item {
       .grid__image {
@@ -160,6 +257,14 @@ section#articles {
     grid-auto-rows: 1fr;
     grid-gap: 1rem;
 
+    @include tablet {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @include mobile {
+      grid-template-columns: 1fr;
+    }
+
     .article__item {
       max-width: 100%;
       height: 100%;
@@ -171,7 +276,6 @@ section#articles {
 
         img {
           max-width: 100%;
-          min-height: 100%;
           border-radius: 0.2rem 0.2rem 0 0;
           object-fit: cover;
         }
@@ -217,6 +321,11 @@ section#articles {
     grid-template-columns: 1fr 1fr 1fr 2fr;
     grid-gap: 2rem;
 
+    @include tablet {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+
     .footer__info {
       .footer__logo {
         display: inline-block;
@@ -231,15 +340,15 @@ section#articles {
         display: flex;
         gap: 0.7rem;
 
+        @include tablet {
+          justify-content: center;
+        }
+
         .footer__social-link {
           display: inline-block;
 
           &:hover {
             color: color(green);
-          }
-
-          img {
-            width: 16px;
           }
 
           i {
@@ -264,6 +373,11 @@ section#articles {
       flex-direction: column;
       align-items: flex-end;
       text-align: right;
+
+      @include tablet {
+        text-align: center;
+        align-items: center;
+      }
 
       button {
         margin-bottom: 2rem;
